@@ -1,0 +1,46 @@
+[
+  {
+    "timestamp": "2026-03-04 10:25:59",
+    "input": {
+      "value": "123",
+      "base": 10
+    },
+    "output": {
+      "value": "1111011",
+      "base": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-04 10:25:59",
+    "input": {
+      "value": "777",
+      "base": 8
+    },
+    "output": {
+      "value": "511",
+      "base": 10
+    }
+  },
+  {
+    "timestamp": "2026-03-04 10:25:59",
+    "input": {
+      "value": "FF",
+      "base": 16
+    },
+    "output": {
+      "value": "255",
+      "base": 10
+    }
+  },
+  {
+    "timestamp": "2026-03-04 10:25:59",
+    "input": {
+      "value": "1010",
+      "base": 2
+    },
+    "output": {
+      "value": "10",
+      "base": 10
+    }
+  }
+]
