@@ -14,7 +14,6 @@ def validate_number(number_str, base):
     Возвращает:
     tuple: (bool, str) - (корректен ли ввод, сообщение об ошибке)
     """
-
     if not number_str:
         return False, "Число не может быть пустым"
 
@@ -33,6 +32,7 @@ def validate_number(number_str, base):
 
     return True, "Число корректно"
 
+
 def get_valid_characters(base):
     """
     Возвращает строку с допустимыми символами для указанного основания.
@@ -45,21 +45,6 @@ def get_valid_characters(base):
     else:
         return digits + letters[:base-10]
 
-# Пример использования модуля (для самопроверки)
-if __name__ == "__main__":
-    print("Тестирование модуля B (валидация):")
-    test_cases = [
-        ("10102", 2),  # Неверно (есть цифра 2)
-        ("FF", 16),    # Верно
-        ("128", 8),    # Неверно (есть цифра 8)
-        ("13F", 16),   # Верно
-        ("1010", 2),   # Верно
-    ]
-
-    for num, base in test_cases:
-        is_valid, message = validate_number(num, base)
-        result = "✓" if is_valid else "X"
-        print(f"{result} {num} (base={base}) = {message}")
 
 def validate_file(filename, base):
     """
@@ -80,4 +65,21 @@ def validate_file(filename, base):
         else:
             results.append((f"Строка {i}: (пустая строка)", False, "Строка пустая"))
     
-    return results   
+    return results
+
+
+# Пример использования модуля (для самопроверки)
+if __name__ == "__main__":
+    print("Тестирование модуля B (валидация):")
+    test_cases = [
+        ("10102", 2),  # Неверно (есть цифра 2)
+        ("FF", 16),    # Верно
+        ("128", 8),    # Неверно (есть цифра 8)
+        ("13F", 16),   # Верно
+        ("1010", 2),   # Верно
+    ]
+
+    for num, base in test_cases:
+        is_valid, message = validate_number(num, base)
+        result = "✓" if is_valid else "X"
+        print(f"{result} {num} (base={base}) = {message}")
