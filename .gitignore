@@ -1,10 +1,17 @@
 # Created by venv; see https://docs.python.org/3/library/venv.html
+# Виртуальное окружение
 venv/
-__pycache__/
+pycache/
 *.pyc
+
+# Редакторы
 .vscode/
 .idea/
+
+# Логи и временные файлы
 *.log
 *.tmp
-history.json
-*
+
+# Файлы истории (мы их отслеживаем)
+# history.json - не игнорируем!
+
