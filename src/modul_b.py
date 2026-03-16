@@ -61,8 +61,9 @@ if __name__ == "__main__":
         result = "✓" if is_valid else "X"
         print(f"{result} {num} (base={base}) = {message}")
 
-        def validate_file(filename, base):
-    """   Проверяет все числа в файле
+def validate_file(filename, base):
+    """
+    Проверяет все числа в файле
     """
     try:
         with open(filename, 'r', encoding='utf-8') as f:
@@ -73,8 +74,10 @@ if __name__ == "__main__":
     results = []
     for i, line in enumerate(lines, 1):
         line = line.strip()
-        if line:  # если строка не пустая
+        if line:
             is_valid, msg = validate_number(line, base)
             results.append((f"Строка {i}: {line}", is_valid, msg))
+        else:
+            results.append((f"Строка {i}: (пустая строка)", False, "Строка пустая"))
     
-    return results
+    return results   
