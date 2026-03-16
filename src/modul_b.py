@@ -6,6 +6,7 @@
 def validate_number(number_str, base):
     """
     Проверяет, соответствует ли строка указанной системе счисления.
+
     Параметры:
     number_str (str): Проверяемое число
     base (int): Основание системы счисления (2, 8, 10, 16)
@@ -27,9 +28,11 @@ def validate_number(number_str, base):
 
     for char in clean_str:
         if char not in valid_chars:
-            return False, "Недопустимый символ '{}'".format(char)
+            return False, f"Недопустимый символ '{char}'"
 
     return True, "Число корректно"
+
+
 def get_valid_characters(base):
     """
     Возвращает строку с допустимыми символами для указанного основания.
@@ -42,21 +45,7 @@ def get_valid_characters(base):
     else:
         return digits + letters[:base-10]
 
-# Пример использования модуля (для самопроверки)
-if __name__ == "__main__":
-    print("Тестирование модуля B (валидация):")
-    test_cases = [
-        ("10102", 2),  # Неверно (есть цифра 2)
-        ("FF", 16),    # Верно
-        ("128", 8),    # Неверно (есть цифра 8)
-        ("13F", 16),   # Верно
-        ("1010", 2),   # Верно
-    ]
 
-    for num, base in test_cases:
-        is_valid, message = validate_number(num, base)
-        result = "✓" if is_valid else "X"
-        print(f"{result} {num} (base={base}) = {message}")
 def validate_file(filename, base):
     """
     Проверяет все числа в файле
@@ -76,4 +65,21 @@ def validate_file(filename, base):
         else:
             results.append((f"Строка {i}: (пустая строка)", False, "Строка пустая"))
     
-    return results   
+    return results
+
+
+# Пример использования модуля (для самопроверки)
+if __name__ == "__main__":
+    print("Тестирование модуля B (валидация):")
+    test_cases = [
+        ("10102", 2),  # Неверно (есть цифра 2)
+        ("FF", 16),    # Верно
+        ("128", 8),    # Неверно (есть цифра 8)
+        ("13F", 16),   # Верно
+        ("1010", 2),   # Верно
+    ]
+
+    for num, base in test_cases:
+        is_valid, message = validate_number(num, base)
+        result = "✓" if is_valid else "✗"
+        print(f"{result} {num} (base={base}) = {message}")
