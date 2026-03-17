@@ -23,11 +23,11 @@ def convert_number(number_str, from_base, to_base):
         if to_base == 10:
             return str(decimal_number)
         elif to_base == 2:
-            return bin(decimal_number)[2:]  # [2:] отрезает префикс '0b'
+            return bin(decimal_number)[2:]
         elif to_base == 8:
-            return oct(decimal_number)[2:]  # [2:] отрезает префикс '0o'
+            return oct(decimal_number)[2:]
         elif to_base == 16:
-            return hex(decimal_number)[2:].upper()  # [2:] отрезает '0x', .upper() для заглавных букв
+            return hex(decimal_number)[2:].upper()
         else:
             return "Ошибка: неподдерживаемая система счисления"
     except ValueError as e:
@@ -79,5 +79,3 @@ if __name__ == "__main__":
     results = batch_convert(numbers, 16, 10)
     for original, converted in zip(numbers, results):
         print(f"{original} (base=16) -> {converted} (base=10)")
-
-        
