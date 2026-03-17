@@ -13,5 +13,4 @@ pycache/
 *.tmp
 
 # Файлы истории (мы их отслеживаем)
-# history.json - не игнорируем!
-
+history.json
