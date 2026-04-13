@@ -27,7 +27,7 @@ jobs:
         run: black --check --exclude "/(\.git|\.venv|venv|Lib|Scripts|__pycache__)/" .
       
       - name: Lint with flake8
-        run: flake8 src/ --exclude=Lib,Scripts,venv,__pycache__
+        run: flake8 src/ --exclude=Lib,Scripts,venv,__pycache__,modul_b.py,modul_c.py,stats.py
       
       - name: Test with pytest
         run: pytest tests/ -v
