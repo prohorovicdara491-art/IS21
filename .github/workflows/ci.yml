@@ -24,10 +24,10 @@ jobs:
           pip install pytest flake8 black
       
       - name: Check formatting with black
-        run: black --check .
+        run: black --check --exclude "/(\.git|\.venv|venv|Lib|Scripts|__pycache__)/" .
       
       - name: Lint with flake8
-        run: flake8 src/
+        run: flake8 src/ --exclude=Lib,Scripts,venv,__pycache__
       
       - name: Test with pytest
         run: pytest tests/ -v
