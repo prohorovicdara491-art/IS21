@@ -3,6 +3,7 @@
 Разработчик: [Куксенко]
 """
 
+
 def validate_number(number_str, base):
     """
     Проверяет, соответствует ли строка указанной системе счисления.
@@ -20,7 +21,7 @@ def validate_number(number_str, base):
     # Убираем возможный префикс 0x, 0b, 0o для проверки
     clean_str = number_str.upper()
 
-    if clean_str.startswith(('0X', '0B', '0O')):
+    if clean_str.startswith(("0X", "0B", "0O")):
         clean_str = clean_str[2:]
 
     # Проверяем каждый символ
@@ -43,7 +44,7 @@ def get_valid_characters(base):
     if base <= 10:
         return digits[:base]
     else:
-        return digits + letters[:base-10]
+        return digits + letters[: base - 10]
 
 
 def validate_file(filename, base):
@@ -51,11 +52,11 @@ def validate_file(filename, base):
     Проверяет все числа в файле
     """
     try:
-        with open(filename, 'r', encoding='utf-8') as f:
+        with open(filename, "r", encoding="utf-8") as f:
             lines = f.readlines()
     except FileNotFoundError:
         return [("Файл не найден", False, "Ошибка: файл отсутствует")]
-    
+
     results = []
     for i, line in enumerate(lines, 1):
         line = line.strip()
@@ -64,7 +65,7 @@ def validate_file(filename, base):
             results.append((f"Строка {i}: {line}", is_valid, msg))
         else:
             results.append((f"Строка {i}: (пустая строка)", False, "Строка пустая"))
-    
+
     return results
 
 
@@ -73,10 +74,10 @@ if __name__ == "__main__":
     print("Тестирование модуля B (валидация):")
     test_cases = [
         ("10102", 2),  # Неверно (есть цифра 2)
-        ("FF", 16),    # Верно
-        ("128", 8),    # Неверно (есть цифра 8)
-        ("13F", 16),   # Верно
-        ("1010", 2),   # Верно
+        ("FF", 16),  # Верно
+        ("128", 8),  # Неверно (есть цифра 8)
+        ("13F", 16),  # Верно
+        ("1010", 2),  # Верно
     ]
 
     for num, base in test_cases:

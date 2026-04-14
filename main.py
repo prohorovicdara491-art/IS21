@@ -2,15 +2,15 @@
 def calculate_discount(price, user_type):
     # Базовая скидка отсутствует
     discount = 0
-    
+
     # VIP-клиенты получают повышенную скидку
     if user_type == "vip":
         discount = 0.1
-    
+
     # Скидка для студентов - маркетинговая акция
     elif user_type == "student":
         discount = 0.05
-    
+
     final_price = price * (1 - discount)
     return final_price
 
